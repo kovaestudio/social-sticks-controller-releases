@@ -2,12 +2,16 @@
 
 This repository contains Windows installers and update packages only. Application source is maintained privately.
 
-Download the Setup.exe from [the latest release](https://github.com/kovaestudio/social-sticks-controller-releases/releases/latest). Exit old portable controllers before installing. Install under the Windows account used for the simulator and pair the bay once.
+Install Setup once from [the latest release](https://github.com/kovaestudio/social-sticks-controller-releases/releases/latest) under the Windows account used for the simulator. Select the venue and simulator once in Bay settings. Existing installations receive future releases through Check for updates or the automatic idle 04:00–06:00 UK maintenance window. Pairing persists across updates.
 
-Installed controllers download future releases automatically. They install between 04:00 and 06:00 UK time only when the local bay session is idle, the PC has had no input for ten minutes. The PC must be signed in, running and online to receive updates. Pairing persists across updates.
+## Staff timers
 
-Windows acceptance tests have verified installation, stable sign-in startup, background access to the public update feed, and the updater applying/restarting a newer installed version with bay data preserved. Use 0.3.1 or newer; this corrects startup registration from 0.3.0. If 0.3.0 is already installed and running, Check for updates can apply the correction without reinstallation. First venue pilot testing remains separate from these isolated Windows tests. Installers currently are not Authenticode signed.
+Select actual playing minutes: **55 minutes**, **115 minutes**, **175 minutes**, or custom minutes, then press Start session. The timer runs exactly the chosen minutes. Booking integration is deferred; sessions do not auto-start from schedules. Active staff timers block update installation.
 
-## Staff timers (0.3.3 onward)
+## Adverts and warnings (0.3.5 onward)
 
-Staff select actual playing minutes: **55 minutes**, **115 minutes**, **175 minutes**, or a custom number, then press **Start session**. The timer runs exactly the selected minutes. A warning appears with five minutes left; staff can add a full 15 minutes. Booking integration is deferred and sessions do not auto-start from schedules. Legacy cached bookings are inactive and do not block extensions or updates. Active staff timers still block update installation.
+Adverts come forward when triggered, then release topmost priority when staff switch away. The advert toolbar and tray can open the controller. Close, Escape and Dismiss hide adverts safely; an unusable browser/window is recreated when needed. The five-minute warning is a compact six-second corner notice that does not activate its window. Adverts appear at zero, not at the five-minute warning.
+
+Windows regression tests verify repeated close/reopen with live JavaScript execution, actual native foreground/topmost handoff, compact non-activating warning dismissal, timer expiry after adverts were dismissed, and disposed-browser recovery. Installed startup and public update-feed acceptance also pass. GSPro-specific exclusive fullscreen behavior remains a venue check.
+
+The PC must remain signed in and the controller running to receive updates. If an older controller paused after a disposed-object error, exit it from the tray and reopen once before checking for updates while idle. Installers currently are not Authenticode signed.
